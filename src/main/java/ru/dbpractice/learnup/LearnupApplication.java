@@ -5,26 +5,41 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.ConfigurableApplicationContext;
 import ru.dbpractice.learnup.db.DbHelper;
+import ru.dbpractice.learnup.db.Service.AuthorService;
+import ru.dbpractice.learnup.db.Service.AuthorServiceImpl;
+import ru.dbpractice.learnup.db.Service.BookService;
+import ru.dbpractice.learnup.db.Service.BookServiceImpl;
 import ru.dbpractice.learnup.db.model.*;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class LearnupApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(LearnupApplication.class, args);
+//		SpringApplication.run(LearnupApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(LearnupApplication.class, args);
 
-		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Author.class)
-				.addAnnotatedClass(Book.class)
-				.addAnnotatedClass(OrderDetails.class)
-				.addAnnotatedClass(Order.class)
-				.addAnnotatedClass(Client.class)
-				.addAnnotatedClass(BookStock.class)
-				.buildSessionFactory();
-		Session session = null;
+		AuthorService authorService = context.getBean(AuthorServiceImpl.class);
+		authorService.saveAuthor(new Author("Франц Кафка"));
+
+		System.out.println(authorService.getAllAuthors());
+
+
+//		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+//				.addAnnotatedClass(Author.class)
+//				.addAnnotatedClass(Book.class)
+//				.addAnnotatedClass(OrderDetails.class)
+//				.addAnnotatedClass(Order.class)
+//				.addAnnotatedClass(Client.class)
+//				.addAnnotatedClass(BookStock.class)
+//				.buildSessionFactory();
+//		Session session = null;
+
+
+		/*
 		try {
 
 			session = factory.getCurrentSession(); //открываем сессию
@@ -35,7 +50,7 @@ public class LearnupApplication {
 			Order orderBook = new Order(shopper, 800);
 			OrderDetails orderDetails = new OrderDetails(orderBook, 2, 1802, book);
 
-			//Открываем транзакцию
+//			Открываем транзакцию
 			session.beginTransaction();
 
 			session.save(bukowski);
@@ -43,7 +58,7 @@ public class LearnupApplication {
 			session.save(orderDetails);
 			session.save(shopper);
 			session.save(orderBook);
- 			//закрываем транзакцию
+// 			закрываем транзакцию
 			session.getTransaction().commit();
 
 			DbHelper dbhlpr = new DbHelper();
@@ -55,6 +70,9 @@ public class LearnupApplication {
 			factory.close();
 		}
 
-		}
+		 */
+
+
+	}
 
 }
