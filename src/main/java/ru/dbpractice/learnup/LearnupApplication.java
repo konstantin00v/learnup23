@@ -1,17 +1,11 @@
 package ru.dbpractice.learnup;
-import org.hibernate.*;
-import org.hibernate.cfg.Configuration;
+
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
-import ru.dbpractice.learnup.db.DbHelper;
 import ru.dbpractice.learnup.db.Service.AuthorService;
 import ru.dbpractice.learnup.db.Service.AuthorServiceImpl;
-import ru.dbpractice.learnup.db.Service.BookService;
-import ru.dbpractice.learnup.db.Service.BookServiceImpl;
-import ru.dbpractice.learnup.db.model.*;
+import ru.dbpractice.learnup.db.model.Author;
 
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
@@ -23,7 +17,7 @@ public class LearnupApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(LearnupApplication.class, args);
 
 		AuthorService authorService = context.getBean(AuthorServiceImpl.class);
-		authorService.saveAuthor(new Author("Франц Кафка"));
+//		authorService.saveAuthor(new Author("Франц Кафка"));
 
 		System.out.println(authorService.getAllAuthors());
 
