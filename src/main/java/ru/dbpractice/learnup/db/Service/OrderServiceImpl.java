@@ -2,7 +2,8 @@ package ru.dbpractice.learnup.db.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.dbpractice.learnup.db.model.Order;
+import ru.dbpractice.learnup.db.model.*;
+import ru.dbpractice.learnup.db.repository.BookRepository;
 import ru.dbpractice.learnup.db.repository.OrderRepository;
 
 import java.util.List;
@@ -12,6 +13,9 @@ import java.util.Optional;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
 
     @Override
     public List<Order> getAllOrder() {
@@ -28,7 +32,15 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
-    @Override
+    public void addOrder(int id, Client client, int count, BookStock bookStock) {
+        if (bookStock.getCount() > 0) {
+            bookRepository.deleteById(id);
+        } else {
+            System.out.println("К сожалению, книгу уже купили =(");
+        }
+    }
+
+        @Override
     public void saveOrder(Order order) {
         orderRepository.save(order);
     }

@@ -15,13 +15,11 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Override
-    @Transactional
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
     @Override
-    @Transactional
     public Book getBookById(int id) {
         Book book = null;
         Optional<Book> b = bookRepository.findById(id);
@@ -32,14 +30,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    @Transactional
     public void saveBook(Book book) {
         bookRepository.save(book);
 
     }
 
     @Override
-    @Transactional
     public void deleteBook(int id) {
         bookRepository.deleteById(id);
 

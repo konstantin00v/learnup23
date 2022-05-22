@@ -19,7 +19,7 @@ public class Client {
     private String initials_client;
 
     @Column(name = "birth_date")
-    private int birth_date;
+    private String birth_date;
 
     @Override
     public String toString() {
@@ -32,7 +32,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String initials_client, int birth_date) {
+    public Client(String initials_client, String birth_date) {
         this.initials_client = initials_client;
         this.birth_date = birth_date;
     }

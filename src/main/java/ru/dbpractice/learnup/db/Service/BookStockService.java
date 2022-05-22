@@ -1,5 +1,6 @@
 package ru.dbpractice.learnup.db.Service;
 
+import ru.dbpractice.learnup.db.model.Book;
 import ru.dbpractice.learnup.db.model.BookStock;
 
 import java.util.List;

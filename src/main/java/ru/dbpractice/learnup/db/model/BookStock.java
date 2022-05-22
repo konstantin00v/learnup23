@@ -9,27 +9,36 @@ import javax.persistence.*;
 public class BookStock {
 
     @Id
-    @Column(name = "stock")
-    private int stock;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "book_stock_id")
+    private int book_stock_id;
 
+    @Override
+    public String toString() {
+        return "BookStock{" +
+                "book_stock_id=" + book_stock_id +
+                ", book=" + book +
+                ", count=" + count +
+                '}';
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
     private Book book;
 
-    @Override
-    public String toString() {
-        return "BookStock{" +
-                "stock=" + stock +
-                ", book=" + book +
-                '}';
+    @Column(name = "count")
+    private int count;
+
+    public BookStock( Book book, int count) {
+        this.book = book;
+        this.count = count;
     }
 
     public BookStock() {
     }
 
-    public BookStock(int stock, Book book) {
-        this.stock = stock;
+    public BookStock(int book_stock_id, Book book) {
+        this.book_stock_id = book_stock_id;
         this.book = book;
     }
 }

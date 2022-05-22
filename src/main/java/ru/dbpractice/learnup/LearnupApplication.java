@@ -5,7 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import ru.dbpractice.learnup.db.Service.AuthorService;
 import ru.dbpractice.learnup.db.Service.AuthorServiceImpl;
+import ru.dbpractice.learnup.db.Service.OrderService;
+import ru.dbpractice.learnup.db.Service.OrderServiceImpl;
 import ru.dbpractice.learnup.db.model.Author;
+import ru.dbpractice.learnup.db.model.Book;
+import ru.dbpractice.learnup.db.model.BookStock;
+import ru.dbpractice.learnup.db.model.Client;
 
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
@@ -17,9 +22,49 @@ public class LearnupApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(LearnupApplication.class, args);
 
 		AuthorService authorService = context.getBean(AuthorServiceImpl.class);
+		OrderService orderService = context.getBean(OrderServiceImpl.class);
+
 //		authorService.saveAuthor(new Author("Франц Кафка"));
 
-		System.out.println(authorService.getAllAuthors());
+//		System.out.println(authorService.getAllAuthors());
+		Author bukowski = new Author("Bukowski");
+		Book book = new Book("BlueBird", bukowski, 1865, 100, 800);
+
+		BookStock store = new BookStock(1, book);
+
+
+		Client client0 = new Client("Milena", "18 февраля 2000");
+		Client client1 = new Client("Milena", "12 января 1999");
+
+		new Thread(() -> {
+			((OrderServiceImpl) orderService).addOrder(book.getBook_id(), client1, 1, store);
+		}).start();
+
+		new Thread(() -> {
+			((OrderServiceImpl) orderService).addOrder(book.getBook_id(), client0, 1, store);
+		}).start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
