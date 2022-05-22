@@ -37,8 +37,5 @@ public class BookStock {
     public BookStock() {
     }
 
-    public BookStock(int book_stock_id, Book book) {
-        this.book_stock_id = book_stock_id;
-        this.book = book;
-    }
+
 }

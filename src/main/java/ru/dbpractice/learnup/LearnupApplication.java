@@ -30,7 +30,7 @@ public class LearnupApplication {
 		Author bukowski = new Author("Bukowski");
 		Book book = new Book("BlueBird", bukowski, 1865, 100, 800);
 
-		BookStock store = new BookStock(1, book);
+		BookStock store = new BookStock(book, 1);
 
 
 		Client client0 = new Client("Milena", "18 февраля 2000");
