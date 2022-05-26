@@ -1,11 +1,13 @@
 package ru.dbpractice.learnup.db.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Service;
-import ru.dbpractice.learnup.db.model.*;
+import ru.dbpractice.learnup.db.entity.*;
 import ru.dbpractice.learnup.db.repository.BookRepository;
 import ru.dbpractice.learnup.db.repository.OrderRepository;
 
+import javax.persistence.LockModeType;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
         }
         return order;
     }
-
+    @Lock(LockModeType.OPTIMISTIC)
     public void addOrder(int id, Client client, int count, BookStock bookStock) {
         if (bookStock.getCount() > 0) {
             bookRepository.deleteById(id);
@@ -40,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-        @Override
+    @Override
     public void saveOrder(Order order) {
         orderRepository.save(order);
     }

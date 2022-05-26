@@ -1,8 +1,7 @@
 package ru.dbpractice.learnup.db.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.dbpractice.learnup.db.model.Book;
-import ru.dbpractice.learnup.db.model.BookStock;
+import ru.dbpractice.learnup.db.entity.BookStock;
 import ru.dbpractice.learnup.db.repository.BookRepository;
 import ru.dbpractice.learnup.db.repository.BookStockRepository;
 import java.util.List;

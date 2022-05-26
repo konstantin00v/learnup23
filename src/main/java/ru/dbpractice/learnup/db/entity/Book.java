@@ -1,4 +1,4 @@
-package ru.dbpractice.learnup.db.model;
+package ru.dbpractice.learnup.db.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,6 +39,8 @@ public class Book {
     @Column
     private int count_page;
 
+    @Version
+    int version;
 
     @Override
     public String toString() {

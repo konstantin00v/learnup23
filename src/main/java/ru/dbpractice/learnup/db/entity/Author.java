@@ -1,4 +1,4 @@
-package ru.dbpractice.learnup.db.model;
+package ru.dbpractice.learnup.db.entity;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

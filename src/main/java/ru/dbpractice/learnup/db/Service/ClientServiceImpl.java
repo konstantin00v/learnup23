@@ -2,7 +2,7 @@ package ru.dbpractice.learnup.db.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.dbpractice.learnup.db.model.Client;
+import ru.dbpractice.learnup.db.entity.Client;
 import ru.dbpractice.learnup.db.repository.ClientRepository;
 import java.util.List;
 

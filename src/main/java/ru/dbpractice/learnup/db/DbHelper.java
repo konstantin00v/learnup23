@@ -3,8 +3,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import ru.dbpractice.learnup.db.model.Author;
-import ru.dbpractice.learnup.db.model.Book;
+import ru.dbpractice.learnup.db.entity.Author;
+import ru.dbpractice.learnup.db.entity.Book;
 
 
 import java.util.List;

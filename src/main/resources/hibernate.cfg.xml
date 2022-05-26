@@ -13,12 +13,12 @@
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
 
-<!--        <mapping class="ru.dbpractice.learnup.db.model.Author"/>-->
-<!--        <mapping class="ru.dbpractice.learnup.db.model.Book"/>-->
-<!--        <mapping class="ru.dbpractice.learnup.db.model.BookStock"/>-->
-<!--        <mapping class="ru.dbpractice.learnup.db.model.Client"/>-->
-<!--        <mapping class="ru.dbpractice.learnup.db.model.Order"/>-->
-<!--        <mapping class="ru.dbpractice.learnup.db.model.OrderDetails"/>-->
+<!--        <mapping class="ru.dbpractice.learnup.db.entity.Author"/>-->
+<!--        <mapping class="ru.dbpractice.learnup.db.entity.Book"/>-->
+<!--        <mapping class="ru.dbpractice.learnup.db.entity.BookStock"/>-->
+<!--        <mapping class="ru.dbpractice.learnup.db.entity.Client"/>-->
+<!--        <mapping class="ru.dbpractice.learnup.db.entity.Order"/>-->
+<!--        <mapping class="ru.dbpractice.learnup.db.entity.OrderDetails"/>-->
 
     </session-factory>
 </hibernate-configuration>

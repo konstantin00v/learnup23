@@ -7,10 +7,10 @@ import ru.dbpractice.learnup.db.Service.AuthorService;
 import ru.dbpractice.learnup.db.Service.AuthorServiceImpl;
 import ru.dbpractice.learnup.db.Service.OrderService;
 import ru.dbpractice.learnup.db.Service.OrderServiceImpl;
-import ru.dbpractice.learnup.db.model.Author;
-import ru.dbpractice.learnup.db.model.Book;
-import ru.dbpractice.learnup.db.model.BookStock;
-import ru.dbpractice.learnup.db.model.Client;
+import ru.dbpractice.learnup.db.entity.Author;
+import ru.dbpractice.learnup.db.entity.Book;
+import ru.dbpractice.learnup.db.entity.BookStock;
+import ru.dbpractice.learnup.db.entity.Client;
 
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
@@ -34,7 +34,7 @@ public class LearnupApplication {
 
 
 		Client client0 = new Client("Milena", "18 февраля 2000");
-		Client client1 = new Client("Milena", "12 января 1999");
+		Client client1 = new Client("Yana", "12 января 1999");
 
 		new Thread(() -> {
 			((OrderServiceImpl) orderService).addOrder(book.getBook_id(), client1, 1, store);

@@ -1,4 +1,4 @@
-package ru.dbpractice.learnup.db.model;
+package ru.dbpractice.learnup.db.entity;
 import lombok.*;
 import javax.persistence.*;
 
@@ -25,6 +25,9 @@ public class BookStock {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
     private Book book;
+
+    @Version
+    int version;
 
     @Column(name = "count")
     private int count;
